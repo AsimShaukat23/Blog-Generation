@@ -1,3 +1,4 @@
+import os
 import openai
 import random
 
@@ -14,7 +15,7 @@ themes = {
 
 # Function to generate blog ideas using the OpenAI API
 def generate_blog_ideas(prompt):
-    openai.api_key = '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'
+    openai.api_key = os.getenv('OPENAI_KEY')  # Get the API key from the environment variable
     response = openai.Completion.create(
         engine="text-davinci-002",
         prompt=prompt,
